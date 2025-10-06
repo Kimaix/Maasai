@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sherath Kimai | Maasai Tech Innovator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #E63946;
+            --secondary: #F4A261;
+            --dark: #0A0E27;
+            --darker: #050817;
+            --light: #E9ECEF;
+            --accent: #2A9D8F;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
+            color: var(--light);
+            overflow-x: hidden;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 2rem;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+            opacity: 0.1;
+            top: -250px;
+            right: -250px;
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+            opacity: 0.1;
+            bottom: -200px;
+            left: -200px;
+            animation: pulse 5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.1; }
+            50% { transform: scale(1.2); opacity: 0.15; }
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            text-align: center;
+            z-index: 1;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .maasai-symbol {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 2rem;
+            animation: float 3s ease-in-out infinite;
+            filter: drop-shadow(0 10px 30px rgba(244, 162, 97, 0.4));
+        }
+
+        .maasai-symbol svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: var(--light);
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            box-shadow: 0 10px 30px rgba(230, 57, 70, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(230, 57, 70, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--light);
+            border: 2px solid var(--accent);
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text {
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+
+        .vision-box {
+            background: linear-gradient(135deg, rgba(230, 57, 70, 0.1), rgba(42, 157, 143, 0.1));
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .vision-box h3 {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+        }
+
+        .project-card:hover::before {
+            opacity: 0.1;
+        }
+
+        .project-card-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .project-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .project-icon svg {
+            width: 100%;
+            height: 100%;
+            fill: var(--secondary);
+        }
+
+        .project-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        .project-status {
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            background: rgba(42, 157, 143, 0.2);
+            color: var(--accent);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: linear-gradient(135deg, rgba(244, 162, 97, 0.1), rgba(230, 57, 70, 0.1));
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .skill-category h3 {
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .skill-category h3 svg {
+            width: 28px;
+            height: 28px;
+            fill: var(--secondary);
+        }
+
+        .skill-category ul {
+            list-style: none;
+        }
+
+        .skill-category li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            opacity: 0.9;
+        }
+
+        .skill-category li:last-child {
+            border-bottom: none;
+        }
+
+        .philosophy {
+            background: linear-gradient(135deg, rgba(42, 157, 143, 0.15), rgba(230, 57, 70, 0.15));
+            padding: 4rem;
+            border-radius: 30px;
+            text-align: center;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            margin: 3rem 0;
+        }
+
+        .philosophy blockquote {
+            font-size: 2rem;
+            font-style: italic;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .philosophy p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        .contact {
+            text-align: center;
+        }
+
+        .location-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem 1.8rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            color: var(--light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin: 1.5rem auto;
+            max-width: 400px;
+        }
+
+        .location-link:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary);
+            background: linear-gradient(135deg, rgba(230, 57, 70, 0.1), rgba(42, 157, 143, 0.1));
+        }
+
+        .location-icon {
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .location-icon svg {
+            width: 100%;
+            height: 100%;
+            fill: var(--secondary);
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem 2rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            color: var(--light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            min-width: 200px;
+        }
+
+        .contact-link:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            background: linear-gradient(135deg, rgba(230, 57, 70, 0.1), rgba(42, 157, 143, 0.1));
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-icon svg {
+            width: 100%;
+            height: 100%;
+            fill: var(--secondary);
+        }
+
+        /* Contact Form Styles */
+        .contact-form {
+            max-width: 600px;
+            margin: 3rem auto 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1.2rem;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            color: var(--light);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(230, 57, 70, 0.4);
+        }
+
+        /* Loading and Success States */
+        .form-message {
+            padding: 1rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+            display: none;
+        }
+
+        .form-success {
+            background: rgba(42, 157, 143, 0.2);
+            color: var(--accent);
+        }
+
+        .form-error {
+            background: rgba(230, 57, 70, 0.2);
+            color: var(--primary);
+        }
+
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--secondary);
+            animation: spin 1s ease-in-out infinite;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: var(--darker);
+            margin-top: 5rem;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .philosophy blockquote {
+                font-size: 1.5rem;
+            }
+            
+            .project-icon {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .contact-link {
+                width: 100%;
+                max-width: 350px;
+            }
+            
+            .location-link {
+                width: 100%;
+                max-width: 350px;
+            }
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-20px); }
+            60% { transform: translateX(-50%) translateY(-10px); }
+        }
+
+        .scroll-indicator::after {
+            content: '↓';
+            font-size: 2rem;
+            color: var(--secondary);
+            opacity: 0.6;
+        }
+        
+        /* Custom icons */
+        .icon-code {
+            clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);
+        }
+        
+        .icon-paint {
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        }
+        
+        .icon-brain {
+            clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+        }
+        
+        .icon-rocket {
+            clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="hero-content">
+            <div class="maasai-symbol">
+                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Maasai Shield Pattern -->
+                    <defs>
+                        <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#E63946;stop-opacity:1" />
+                            <stop offset="50%" style="stop-color:#F4A261;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#2A9D8F;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    
+                    <!-- Shield Shape -->
+                    <ellipse cx="100" cy="100" rx="70" ry="90" fill="url(#shieldGrad)" opacity="0.9"/>
+                    
+                    <!-- Traditional Pattern Lines -->
+                    <line x1="100" y1="20" x2="100" y2="180" stroke="white" stroke-width="3" opacity="0.8"/>
+                    <line x1="40" y1="100" x2="160" y2="100" stroke="white" stroke-width="3" opacity="0.8"/>
+                    <line x1="60" y1="60" x2="140" y2="140" stroke="white" stroke-width="2" opacity="0.6"/>
+                    <line x1="140" y1="60" x2="60" y2="140" stroke="white" stroke-width="2" opacity="0.6"/>
+                    
+                    <!-- Decorative Circles -->
+                    <circle cx="100" cy="50" r="8" fill="#F4A261" opacity="0.9"/>
+                    <circle cx="100" cy="150" r="8" fill="#F4A261" opacity="0.9"/>
+                    <circle cx="50" cy="100" r="8" fill="#E63946" opacity="0.9"/>
+                    <circle cx="150" cy="100" r="8" fill="#2A9D8F" opacity="0.9"/>
+                    
+                    <!-- Center Symbol -->
+                    <circle cx="100" cy="100" r="15" fill="none" stroke="white" stroke-width="3" opacity="0.9"/>
+                    <circle cx="100" cy="100" r="8" fill="#F4A261"/>
+                </svg>
+            </div>
+            <h1>Sherath Kimai</h1>
+            <p class="subtitle">Maasai Tech Innovator & Digital Visionary</p>
+            <p class="tagline">
+                Merging Maasai culture with cutting-edge technology. Building digital experiences that empower, educate, and celebrate Maasai identity and heritage.
+            </p>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn btn-primary">Explore Projects</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            </div>
+        </div>
+        <div class="scroll-indicator"></div>
+    </div>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>
+                    I'm Sherath Kimai, a proud Maasai tech innovator driven by the dream of merging Maasai culture with cutting-edge technology.
+                </p>
+                <p>
+                    Through creativity, code, and community, I build tools and digital experiences that empower, educate, and celebrate Maasai identity.
+                </p>
+                <p>
+                    My work reimagines how technology can carry the heartbeat of Maasai tradition into the digital age — authentic, inspiring, and proudly Maasai.
+                </p>
+            </div>
+            <div class="vision-box">
+                <h3>Vision</h3>
+                <p>
+                    To build a digital future that reflects the Maasai people — a space where innovation respects our culture, creativity drives empowerment, and technology speaks our native rhythm.
+                </p>
+                <p style="margin-top: 1rem;">
+                    I believe in tech for identity, not just convenience. My goal is to craft systems that honor Maasai roots while unlocking new possibilities for our future.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Upcoming Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-card-content">
+                    <div class="project-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h4l4 4 4-4h4c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
+                        </svg>
+                    </div>
+                    <h3>MaasaiSmile</h3>
+                    <p>A social platform designed for cultural connection, storytelling, and creativity — where Maasai youth can share experiences, learn, and celebrate together.</p>
+                    <span class="project-status">In Development</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-card-content">
+                    <div class="project-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+                        </svg>
+                    </div>
+                    <h3>Maasaivibes</h3>
+                    <p>A music streaming app built for African rhythms and Maasai voices. Celebrates traditional and modern music with personalized playlists and Maasai-inspired dark mode.</p>
+                    <span class="project-status">Coming Soon</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-card-content">
+                    <div class="project-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                    </div>
+                    <h3>Lenana AI</h3>
+                    <p>An AI companion inspired by Maasai intelligence and wisdom. Offers conversations and learning grounded in African values.</p>
+                    <span class="project-status">Prototype Phase</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-card-content">
+                    <div class="project-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/>
+                        </svg>
+                    </div>
+                    <h3>Maatube</h3>
+                    <p>A video and MP3 downloader and streaming platform dedicated to Maasai-related content, built in Python and Kivy.</p>
+                    <span class="project-status">In Progress</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Skills & Expertise</h2>
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3>
+                    <svg class="icon-code" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0L19.2 12l-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
+                    </svg>
+                    Programming
+                </h3>
+                <ul>
+                    <li>Python</li>
+                    <li>Flutter</li>
+                    <li>MySQL</li>
+                    <li>Django</li>
+                </ul>
+            </div>
+
+            <div class="skill-category">
+                <h3>
+                    <svg class="icon-paint" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9c.83 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.01-.23-.26-.38-.61-.38-.99 0-.83.67-1.5 1.5-1.5H16c2.76 0 5-2.24 5-5 0-4.42-4.03-8-9-8z"/>
+                    </svg>
+                    Design
+                </h3>
+                <ul>
+                    <li>UI/UX Design</li>
+                    <li>Dark Mode Interfaces</li>
+                    <li>Cultural Visual Themes</li>
+                </ul>
+            </div>
+
+            <div class="skill-category">
+                <h3>
+                    <svg class="icon-brain" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+                    </svg>
+                    AI Integration
+                </h3>
+                <ul>
+                    <li>Conversational Interfaces</li>
+                    <li>Localized Assistants</li>
+                </ul>
+            </div>
+
+            <div class="skill-category">
+                <h3>
+                    <svg class="icon-rocket" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+                    </svg>
+                    Soft Skills
+                </h3>
+                <ul>
+                    <li>Creativity</li>
+                    <li>Visionary Thinking</li>
+                    <li>Cultural Leadership</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <div class="philosophy">
+        <blockquote>"Technology should not replace identity — it should amplify it."</blockquote>
+        <p>
+            I believe the next generation of Maasai innovation must rise from within — combining deep tradition with new-age intelligence. Every app, every line of code, and every design I create tells a Maasai story in digital form.
+        </p>
+    </div>
+
+    <section id="contact" class="contact">
+        <h2>Get In Touch</h2>
+        
+        <!-- Location Link -->
+        <a href="https://share.google/CpH1g8AfohiyzKzc1" target="_blank" class="location-link">
+            <div class="location-icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
+            </div>
+            <div>
+                <strong>My Location</strong><br>
+                Tanzania, East Africa
+            </div>
+        </a>
+        
+        <!-- Social Media Links -->
+        <div class="contact-links">
+            <a href="https://tiktok.com/@sherath.kimai" target="_blank" class="contact-link">
+                <div class="contact-icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.46.08-2.92-.32-4.04-1.22-2.02-1.59-3.21-4.18-3.21-6.69v-3.48c0-1.99.69-3.96 2.06-5.53 1.37-1.63 3.36-2.62 5.44-2.62zm-2.58 14.28c-.01 1.99-.01 3.97 0 5.96.01.58.08 1.16.22 1.72.24.97.85 1.83 1.72 2.39.88.59 1.98.82 3.02.82 1.99 0 3.97-.66 5.54-1.99 1.67-1.44 2.67-3.57 2.67-5.75v-3.89c0-1.02-.2-2.05-.6-3.01-1.05-2.51-3.79-4.13-6.47-4.13-1.02 0-2.05.17-3.02.51-2.14.75-3.72 2.62-4.14 4.81-.05.3-.08.61-.08.92v4.24z"/>
+                    </svg>
+                </div>
+                <div>
+                    <strong>TikTok</strong><br>
+                    @sherath.kimai
+                </div>
+            </a>
+            
+            <a href="https://facebook.com/themaasaispirit" target="_blank" class="contact-link">
+                <div class="contact-icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.989C18.343 21.129 22 16.99 22 12z"/>
+                    </svg>
+                </div>
+                <div>
+                    <strong>Facebook</strong><br>
+                    @themaasaispirit
+                </div>
+            </a>
+            
+            <a href="https://instagram.com/themaasaispirit" target="_blank" class="contact-link">
+                <div class="contact-icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                    </svg>
+                </div>
+                <div>
+                    <strong>Instagram</strong><br>
+                    @themaasaispirit
+                </div>
+            </a>
+            
+            <a href="https://youtube.com/@themaasaispirit" target="_blank" class="contact-link">
+                <div class="contact-icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                    </svg>
+                </div>
+                <div>
+                    <strong>YouTube</strong><br>
+                    @themaasaispirit
+                </div>
+            </a>
+        </div>
+        
+        <!-- Contact Form -->
+        <div class="contact-form">
+            <form id="contactForm" action="https://formspree.io/f/xyzzgzjd" method="POST">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" class="form-control" required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">
+                    Send Message <span id="loadingSpinner" class="loading" style="display: none;"></span>
+                </button>
+                <div id="formMessage" class="form-message"></div>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Sherath Kimai. All rights reserved. | Building the future of Maasai tech.</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'all 0.8s ease-out';
+            observer.observe(section);
+        });
+        
+        // Formspree Form Handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const form = e.target;
+            const submitBtn = form.querySelector('.submit-btn');
+            const loadingSpinner = document.getElementById('loadingSpinner');
+            const formMessage = document.getElementById('formMessage');
+            
+            // Show loading state
+            submitBtn.disabled = true;
+            loadingSpinner.style.display = 'inline-block';
+            formMessage.style.display = 'none';
+            
+            // Submit form to Formspree
+            fetch(form.action, {
+                method: form.method,
+                body: new FormData(form),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                // Hide loading state
+                submitBtn.disabled = false;
+                loadingSpinner.style.display = 'none';
+                
+                if (response.ok) {
+                    // Show success message
+                    formMessage.textContent = 'Thank you! Your message has been sent successfully.';
+                    formMessage.className = 'form-message form-success';
+                    formMessage.style.display = 'block';
+                    form.reset();
+                    
+                    // Hide success message after 5 seconds
+                    setTimeout(() => {
+                        formMessage.style.display = 'none';
+                    }, 5000);
+                } else {
+                    // Show error message
+                    response.json().then(data => {
+                        formMessage.textContent = data.error || 'Oops! There was a problem sending your message. Please try again.';
+                        formMessage.className = 'form-message form-error';
+                        formMessage.style.display = 'block';
+                    });
+                }
+            })
+            .catch(error => {
+                // Hide loading state
+                submitBtn.disabled = false;
+                loadingSpinner.style.display = 'none';
+                
+                // Show error message
+                formMessage.textContent = 'Oops! There was a network error. Please try again.';
+                formMessage.className = 'form-message form-error';
+                formMessage.style.display = 'block';
+            });
+        });
+    </script>
+</body>
+</html>
